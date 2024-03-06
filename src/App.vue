@@ -20,6 +20,10 @@ import Footer from '@/components/layouts/Footer.vue';
 </template>
 
 <style>
+  * {
+    font-family: "Noto Sans TC";
+  }
+
   .fade-enter {
     opacity: 0;
   }

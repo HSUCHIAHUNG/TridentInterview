@@ -5,9 +5,9 @@ import { ref } from 'vue';
   /** @const {Array} navbar列表 */
   const menuList = ref([
     { id: 1, lable: '白頭翁的特性', router: '/' },
-    { id: 2, lable: '白頭翁的故事', router: '/' },
-    { id: 3, lable: '白頭翁的美照', router: '/' },
-    { id: 4, lable: '白頭翁的危機', router: '/' },
+    { id: 2, lable: '白頭翁的故事', router: '/story' },
+    { id: 3, lable: '白頭翁的美照', router: '/photo' },
+    { id: 4, lable: '白頭翁的危機', router: '/crisis' },
   ]);
 
 </script>
@@ -26,7 +26,8 @@ import { ref } from 'vue';
     <ul class="flex flex-col justify-center items-center text-18px gap-22px md:pt-76px">
       <li v-for="menu in menuList" :key="menu.id" class="relative">
         <router-link :to="menu.router" :title="`前往${menu.lable}`"
-          class="text-black relative hover:text-#AA6666 after-content-[''] after-absolute after-bottom--2px after-left-0 after-bg-#AA6666 after-h-2px after-w-0 hover:after-w-full after-duration-500 after-ease-[cubic-bezier(.99,.12,.15,1)]"
+          class=" relative hover:text-#AA6666 after-content-[''] after-absolute after-bottom--2px after-left-0 after-bg-#AA6666 after-h-2px after-w-0 hover:after-w-full after-duration-500 after-ease-[cubic-bezier(.99,.12,.15,1)]"
+          :class="[menu.router === $route.path ? 'text-#AA6666 after-w-full' : 'text-black']"
           >{{menu.lable }}
         </router-link>
       </li>
